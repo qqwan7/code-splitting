@@ -1,0 +1,92 @@
+{
+  "getRouters": {
+    "data": {
+      "routers": [{
+        "id": "par1",
+        "isMenu": true,
+        "children": [{
+          "id": "par1_1",
+          "authority": ["add","edit","delete"],
+          "isMenu": true
+        },
+          {
+            "id": "par1_2",
+            "authority": ["add","edit","delete"],
+            "isBreadcrumb": true
+          }]
+      },
+        {
+          "id": "par2",
+          "authority": ["add","edit","delete"],
+          "children": [{
+            "id": "par2_1",
+            "isMenu": false
+          }]
+        },
+        {
+          "id": "par3",
+          "authority": ["add","edit","delete"],
+          "isMenu": true,
+          "children": [{
+            "id": "par3_1",
+            "isMenu": false
+          },
+            {
+              "id": "par3_2",
+              "authority": ["add","edit","delete"],
+              "isMenu": false
+            }]
+        },
+        {
+          "id": "par4",
+          "authority": ["add","edit","delete"],
+          "isMenu": true
+        },
+        {
+          "id": "par5",
+          "authority": ["add","edit","delete"],
+          "isMenu": false
+        },
+        {
+          "id": "par6",
+          "isMenu": true,
+          "children": [{
+            "id": "par6_1",
+            "authority": ["add","edit","delete"],
+            "isMenu": true
+          },
+          {
+            "id": "par6_2",
+            "authority": ["add","edit","delete"],
+            "isMenu": true,
+            "children": [{
+              "id": "par6_2_1",
+              "isBreadcrumb": true,
+              "children": [{
+                "id": "par6_2_1_1",
+                "isBreadcrumb": true
+              },
+                {
+                  "id": "par6_2_1_2",
+                  "isBreadcrumb": false
+                }]
+            },
+              {
+                "id": "par6_2_2",
+                "isBreadcrumb": false,
+                "children": [{
+                  "id": "par6_2_2_1",
+                  "isBreadcrumb": true
+                },
+                  {
+                    "id": "par6_2_2_2",
+                    "isBreadcrumb": false
+                  }]
+              }]
+          }]
+        }]
+    },
+    "msg": "",
+    "retCode": 0
+  }
+}
