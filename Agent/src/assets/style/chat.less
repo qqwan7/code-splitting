@@ -1,0 +1,164 @@
+@color_e: #eee;//1.Variables
+@color_0: #000;
+.bordered{
+  border:solid 1px @color_0;
+}
+@child_w:calc(50% - 100px);
+@child_m: calc( 50% - (50% - 100px)/2);
+.par{
+  height: 50px;
+  .bordered;// 2.Mixins
+  .child{ // 3.嵌套规则
+    width: @child_w;
+    background-color: #0BB20C;
+    height: 40px;
+    margin-left: @child_m;
+    &:hover {
+      background-color: @color_0
+    }
+  }
+}
+
+#messages {
+  list-style-type: none;
+  margin: 0;
+  padding: 0
+}
+#messages li {
+  padding: 5px 10px
+}
+#messages li:nth-child(odd) {
+  background: @color_e
+}
+.bottom(@bottom: 10px){
+  bottom: @bottom;
+}
+form {
+  background: @color_0;
+  padding: 3px;
+  position: fixed;
+  .bottom(60px);
+  left: 250px;
+  right: 20px;
+}
+form input {
+  border: 0;
+  padding: 10px;
+  width: 88%;
+}
+form button {
+  width: 9%;
+}
+//-----------------alert
+@hidden-alert: true;
+.alert-box-bg{
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow: auto;
+  z-index: 1100;
+  background: #000;
+  opacity: .4;
+  .hidden(@hidden-alert)
+}
+.alert_w(@alert_w){
+  width: @alert_w;
+}
+.alert_h(@alert_h){
+  height: @alert_h;
+}
+.alert_top(@alert_top){
+  top: @alert_top;
+}
+.alert_left(@alert_left){
+  left: @alert_left;
+}
+@perc50:50%;
+@alert_w1:500px;
+@alert_h1:@alert_w1/2; //4.运算
+@alert_top1:calc(50% - @alert_h1/2);
+//@alert_top1:(@perc50 - @alert_h1/2);
+@alert_left1:calc(50% - @alert_w1/2);
+.alert-box-content{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 1101;
+  min-width: 480px;
+  min-height: 200px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(9,2,4,.45);
+  word-wrap: break-word;
+}
+.alert-box-meeting{
+  .alert-box-content;
+  .alert_w(@alert_w1);
+  .alert_h(@alert_h1);
+  top: @alert_top1;
+  left: @alert_left1;
+  //.alert_top(@alert_top1);
+  //.alert_left(@alert_left1);
+  .hidden(@hidden-alert)
+}
+.hidden(@isHidden) when (@isHidden){ // 8.条件语句
+  display: none;
+}
+
+// -----------------------btn
+.btn{
+  height: 36px;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 2px 20px;
+  color: #FFF;
+}
+.btn-radius{
+  border-radius: 17px;
+}
+.btn-normal{
+  .btn;
+  background: #2d90d5;
+  border:1px solid #2d90d5;
+  &:hover{
+    background: #0360a1;
+    border:1px solid #0360a1;
+  }
+}
+.btn-normal-radius{
+  .btn-normal;
+  .btn-radius;
+}
+@background:background;// 7.属性
+.btn-green{
+  .btn;
+  @{background}: #68bf3f;
+  border:1px solid #68bf3f;
+  &:hover{
+      @{background}: #6ed03f;
+    border:1px solid #6ed03f;
+  }
+}
+@btn-green-radius:btn-green-radius; // 5.选择器
+.@{btn-green-radius}{
+  .btn-green;
+  .btn-radius
+}
+@images:"../img";// 6.urls
+.logo{
+  width: 50px;height: 50px;
+    @{background}: url("@{images}/logo.png");
+}
+
+///////----------9.loop
+.generate-columns(4);
+.generate-columns(@n, @i: 1) when (@i =< @n) {
+  .font-@{i} {
+    font-size: (12px + @i);
+  }
+  .generate-columns(@n, (@i + 1));
+}

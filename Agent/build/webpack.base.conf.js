@@ -41,6 +41,10 @@ module.exports = {
   module: {
     rules: [
       ...(config.dev.useEslint ? [createLintingRule()] : []),
+      { // https://blog.csdn.net/zmhawk/article/details/75209161
+        test: /\.less$/,
+        loader: "style-loader!css-loader!less-loader",
+      },
       {
         test: /\.vue$/,
         loader: 'vue-loader',

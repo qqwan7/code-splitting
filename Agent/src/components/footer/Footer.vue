@@ -3,7 +3,7 @@
 */
 <template>
     <footer class="footer">
-      Copyright &copy; {{getYear}} Grandstream Networks, Inc. All rights reserved.
+      Copyright &copy; {{getYear}} qqwan, Inc. All rights reserved.
       <div class="language-box ml40">
         <s-language></s-language>
       </div>

@@ -3,6 +3,14 @@
 */
 <template>
     <div>
+      <div class="par">
+        <div class="child"></div>
+        <button class="btn-normal font-1">提交</button>
+        <button class="btn-green font-2">提交</button>
+        <button class="btn-normal-radius font-3">提交</button>
+        <button class="btn-green-radius font-4">提交</button>
+        <div class="logo"></div>
+      </div>
       <ul id="messages">
         <li v-for="(msg, index) in msgs" :key="index">
           {{msg}}
@@ -12,6 +20,9 @@
         <input v-model="message" placeholder="在此输入信息"/>
         <el-button size="small" type="primary">发送</el-button>
       </form>
+      <div class="alert-box-bg "></div>
+      <div class="alert-box-meeting background-green">
+      </div>
     </div>
 </template>
 
@@ -37,32 +48,7 @@ export default {
   }
 }
 </script>
-<style scoped>
-  #messages {
-    list-style-type: none;
-    margin: 0;
-    padding: 0
-  }
-  #messages li {
-    padding: 5px 10px
-  }
-  #messages li:nth-child(odd) {
-    background: #eee
-  }
-  form {
-    background: #000;
-    padding: 3px;
-    position: fixed;
-    bottom: 60px;
-    left: 250px;
-    right: 20px;
-  }
-  form input {
-    border: 0;
-    padding: 10px;
-    width: 88%;
-  }
-  form button {
-    width: 9%;
-  }
+<style scoped lang="less">
+  //http://lesscss.cn/features/
+ @import "../../assets/style/chat";
 </style>
